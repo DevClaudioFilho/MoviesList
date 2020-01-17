@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display:block;
-  margin: 24px 0 24px 140px; 
+  align-items:center;
+  width:1180px;
+  margin: 24px auto; 
 
 `;
