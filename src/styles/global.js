@@ -1,7 +1,12 @@
 import {createGlobalStyle} from 'styled-components';
 
+
 export default createGlobalStyle`
+
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
   *{
+    font-family: 'Roboto', sans-serif;
     padding:0;
     margin:0;
     outline:0;
@@ -26,4 +31,5 @@ export default createGlobalStyle`
   button{
     cursor:pointer;
   }
+  
 `;

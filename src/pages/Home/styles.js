@@ -37,10 +37,10 @@ export const DefaultLayout= styled.div`
 
   h1{
     color:#FFFFFF;  
-    font: 24px bold;
+    font-size: 24px;  
   }
   p{
-    font:16px bold;
+    font-size:16px; 
     color:#7A8C99
   }
 
