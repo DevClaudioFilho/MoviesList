@@ -9,7 +9,7 @@ import loveDefault from "../../assets/1.Icons/icon-heart-white.svg"
 import horse from "../../assets/2.Illustrations/illustration-empty-state@2x.png"
 
 
-import { Container, Input, ListMovie, DefaultLayout} from './styles';
+import { Container, Input, DefaultLayout, ListMovie, Infos, LinkStyle } from './styles';
 
 export default function Home() {
   const [movies, setMovies] = useState([]);
@@ -23,8 +23,6 @@ export default function Home() {
       const response =await api.get(`?apikey=5726cef8&s=${value}`)
   
       const {Search} =response.data
-
-      console.log(Search)
   
       setMovies(Search)
       }
@@ -32,6 +30,16 @@ export default function Home() {
     }
     searchMovie();
   },[value])
+
+  function setFavorite() {
+    console.log(favorite)
+    const favorite = true
+
+    console.log(favorite)
+
+    return favorite;
+    
+  }
   
 
   return (
@@ -59,21 +67,22 @@ export default function Home() {
       }
       <ListMovie>
       <ul>
-        {movies.map(movie => (
-           <Link to={`/${movie.imdbID}`}>
-              <li key={movie.imdbID}>
-                <span>
-                    <img src={loveDefault} alt="love"/>
-                    <div>
-                      <h1>{movie.Title}</h1>
-                      <p>{movie.Year}</p>
-                    </div>
-                </span>
-                  <div className="movie">
-                    <img src={movie.Poster} alt={movie.Title} />
-                  </div>
-              </li>
-              </Link>  
+        {movies.map(movie =>
+        (
+          <li key={movie.imdbID}>
+            <div >
+              <img src={movie.Poster} alt={movie.Title} className="imgMovie"/>
+              <Infos className="infos">
+                <button onClick={()=>setFavorite()}>
+                  <img src={loveDefault} alt="love"></img>
+                </button> 
+                <Link to={`/${movie.imdbID}`} >
+                  <h1>{movie.Title}</h1>
+                  <p>{movie.Year}</p>
+                </Link> 
+              </Infos>
+            </div>
+          </li>
         ))}
       </ul>
       </ListMovie>

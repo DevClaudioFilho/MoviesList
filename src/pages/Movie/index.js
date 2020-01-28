@@ -22,13 +22,28 @@ export default function Movie(props) {
   useEffect(()=>{
     async function loadMovie(){
       const { imdbID } = props.match.params
-      console.log(imdbID)
+     
       const response =await api.get(`?apikey=5726cef8&i=${imdbID}`)
-  
+
+      response.data.Favorite = false
+
       setMovies(response.data)
     }
     loadMovie();
+  
   },[props])
+
+  function setFavorite() {
+    console.log(movies.Favorite)
+    if(movies.Favorite == false){
+      movies.Favorite = true
+
+      return
+    }
+   
+    movies.Favorite = false
+  }
+
   
   return (
     
@@ -42,7 +57,6 @@ export default function Movie(props) {
             <Status>
               <ul>
                 <li>{movies.Runtime} · {movies.Year}</li>
-
                 <li>· {movies.Rated}</li>
               </ul>
             </Status> 
@@ -58,10 +72,10 @@ export default function Movie(props) {
                 <img src={tomatoes} alt="" />
                 <p>{movies.Metascore}%</p>
               </div> 
-              <div className="favorito">
-                <img src={heartGrey} alt=""/>
-                <p>Add to favourites</p>
-              </div>
+              <button onClick={() => setFavorite()}>
+                 <img src={heartGrey} alt=""/>
+                 <p>Add to favourites</p>
+              </button>
             </Notes>
             <Plot>
               <h1>Plot</h1>

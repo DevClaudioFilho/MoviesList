@@ -22,7 +22,6 @@ export const Input = styled.div`
     border:none;
     height:44px;
   }
-
 `;
 
 export const DefaultLayout= styled.div`
@@ -46,8 +45,8 @@ export const DefaultLayout= styled.div`
 
 `
 
-
 export const ListMovie = styled.div`
+position: relative;
 max-width:1180px;
 width:100%;
 
@@ -61,53 +60,67 @@ width:100%;
     margin-top:32px;
     margin-right:20px;
 
-    :hover  .movie{
+    :hover  .imgMovie{
       opacity:30% ;
     }
-    :hover span{
+    :hover .infos{
       opacity:1;
     }
-
-    img{
+  }
+  div{
+    position:relative;
     width:180px;
     height:240px;
-    opacity:100%;
-    }
-  }
 
-  span{
+    img{
+     width:100%;
+     height:100%;
+  }
+  }
+`;
+
+export const Infos = styled.span`
+    opacity:0;
+
     display:flex;
     flex-direction:column;
     justify-content:space-between;
-    position: absolute;
-    width:180px;
-    height:240px;
-    opacity:0;
 
-    img{
-      align-self:flex-end;
-      margin-top:12px;
-      margin-right:12px;
+    position: absolute;
+    width:156px;
+    height:216px;
+    padding:12px;
+    top:0%;
+    left:0%;
+
+    button{
       width:24px;
       height:24px;
+      background:none;
+      border:none;
+      align-self:flex-end;
     }
+    a{
+        color:#ffffff;
 
-    div{
-      margin: 0 12px 0 12px;
-      color:#ffff;
-      opacity:100%;
-
-      h1{
-        font-size:20px;
-        
+        h1{
+          font-weight:500;
+          font-size:20px;
+          line-height:23px;
+          letter-spacing:0.217647px;
+        }
+        p{
+          margin-top:6px;
+          font-size:16px;
+          line-height:19px;
+          letter-spacing:0.174118px;
+        }
       }
+`
 
-      p{
-        margin: 6px 0 12px 0;
-      }
 
-    }
-     
-    }
 
-`;
+
+
+
+

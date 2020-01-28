@@ -110,22 +110,31 @@ export const Notes= styled.div`
       }
   }
 
-    div.favorito{
-    align-items:center;
-    border:solid 1px #353F4c;
-    img{
+ 
+    button{
+      display:flex;
+      background:none;
+      align-items:center;
+      border-radius:4px;
+      border:solid 1px #353F4c;
+
+      img{
     padding:8px;
     }
-    p{  
+    p{
       padding:8px;
       width:100%;
       text-align:center;
       color:#ffffff;
       font-size:16px;
       }
+
+      .onclick button{
+        background-color:#ffffff;
+      }
     }
 
-`;
+`
 
 export const Plot = styled.div`
   flex-direction:column;
