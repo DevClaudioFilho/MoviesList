@@ -16,13 +16,13 @@ import imdb from "../../assets/2.Logos/logo-imdb.svg"
 import tomatoes from "../../assets/2.Logos/logo-rotten-tomatoes.svg"
 import heartGrey from "../../assets/1.Icons/icon-heart-grey.svg"
 export default function Movie(props) {
-  
-  const [movies, setMovies] = useState([]); 
+
+  const [movies, setMovies] = useState([]);
 
   useEffect(()=>{
     async function loadMovie(){
       const { imdbID } = props.match.params
-     
+
       const response =await api.get(`?apikey=5726cef8&i=${imdbID}`)
 
       response.data.Favorite = false
@@ -30,23 +30,23 @@ export default function Movie(props) {
       setMovies(response.data)
     }
     loadMovie();
-  
+
   },[props])
 
   function setFavorite() {
     console.log(movies.Favorite)
-    if(movies.Favorite == false){
+    if(movies.Favorite === false){
       movies.Favorite = true
 
       return
     }
-   
+
     movies.Favorite = false
   }
 
-  
+
   return (
-    
+
     <>
       <Container>
         <Link to="/">
@@ -59,7 +59,7 @@ export default function Movie(props) {
                 <li>{movies.Runtime} · {movies.Year}</li>
                 <li>· {movies.Rated}</li>
               </ul>
-            </Status> 
+            </Status>
             <Title>
               <h1>{movies.Title}</h1>
             </Title>
@@ -71,7 +71,7 @@ export default function Movie(props) {
               <div className="tomatoes">
                 <img src={tomatoes} alt="" />
                 <p>{movies.Metascore}%</p>
-              </div> 
+              </div>
               <button onClick={() => setFavorite()}>
                  <img src={heartGrey} alt=""/>
                  <p>Add to favourites</p>

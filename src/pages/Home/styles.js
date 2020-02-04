@@ -28,18 +28,18 @@ export const DefaultLayout= styled.div`
   display:flex;
   flex-direction:column;
   align-items:center;
-  margin-top:224px; 
+  margin-top:224px;
   img{
     width: 396px;
     height: 193px;
   }
 
   h1{
-    color:#FFFFFF;  
-    font-size: 24px;  
+    color:#FFFFFF;
+    font-size: 24px;
   }
   p{
-    font-size:16px; 
+    font-size:16px;
     color:#7A8C99
   }
 
@@ -61,9 +61,11 @@ width:100%;
     margin-right:20px;
 
     :hover  .imgMovie{
+      transition-delay:0.1s;
       opacity:30% ;
     }
     :hover .infos{
+      transition-delay:0.1s;
       opacity:1;
     }
   }
@@ -102,7 +104,10 @@ export const Infos = styled.span`
     }
     a{
         color:#ffffff;
-
+        :hover{
+          transition-delay:0.2s;
+          opacity:75%;
+        }
         h1{
           font-weight:500;
           font-size:20px;
